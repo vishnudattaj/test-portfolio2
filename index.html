@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- HTML Structure derived and updated from original[cite: 3] -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -11,6 +12,11 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- Dynamic Animated Background Orbs -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 
 <div class="grain"></div>
 <div class="scanline"></div>
@@ -45,20 +51,20 @@
       <div class="term-body" id="termBody"></div>
     </div>
 
-    <h1 class="hero-name">
+    <h1 class="hero-name reveal">
       <span class="line1">Vishnu Datta</span>
       <span class="line2">Jayanti<span class="blip">.</span></span>
     </h1>
-    <p class="hero-tag">
+    <p class="hero-tag reveal" style="transition-delay: 0.1s;">
       CS @ Purdue (Honors). Building ML systems with real-world applications. 
     </p>
-    <div class="hero-actions">
+    <div class="hero-actions reveal" style="transition-delay: 0.2s;">
       <a href="#research" class="btn btn-primary">view research</a>
       <a href="https://github.com/vishnudattaj" target="_blank" rel="noopener" class="btn btn-ghost">github ↗</a>
     </div>
   </div>
 
-  <div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-wrap reveal" style="transition-delay: 0.3s;" aria-hidden="true">
     <div class="ticker-track">
       <span class="ticker-item"><span class="ticker-arr up">▲</span> $70,000 → <b>$212,075</b> backtested, 12yr</span>
       <span class="ticker-sep">|</span>
@@ -88,24 +94,24 @@
 
   <section class="section log" id="log">
     <div class="section-inner">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="eyebrow">// 01 . LOG</p>
         <div class="status-indicator"><span class="pulse green"></span> SYSTEM OPTIMAL</div>
       </div>
       <div class="log-grid">
-        <div class="glass-panel log-entry reveal">
+        <div class="glass-panel log-entry reveal 3d-hover">
           <span class="log-tag">education</span>
           <p>B.S. Computer Science, <strong>Purdue University</strong>, John Martinson Honors College. Expected graduation May 2030.</p>
         </div>
-        <div class="glass-panel log-entry reveal" style="transition-delay: 0.1s">
+        <div class="glass-panel log-entry reveal 3d-hover" style="transition-delay: 0.1s">
           <span class="log-tag">focus</span>
           <p>ML research, applied ML, and quant backtesting. Focused on building predictive models and systematic strategies grounded in real-world data.</p>
         </div>
-        <div class="glass-panel log-entry reveal" style="transition-delay: 0.2s">
+        <div class="glass-panel log-entry reveal 3d-hover" style="transition-delay: 0.2s">
           <span class="log-tag">approach</span>
           <p>I test things on real data before I trust them. Six projects so far, each one backtested, benchmarked, or peer reviewed in some form.</p>
         </div>
-        <div class="glass-panel log-entry reveal" style="transition-delay: 0.3s">
+        <div class="glass-panel log-entry reveal 3d-hover" style="transition-delay: 0.3s">
           <span class="log-tag">now</span>
           <p>Working on volatility-based trading strategies and looking for research or internship opportunities in ML, quant, and SWE</p>
         </div>
@@ -115,12 +121,12 @@
 
   <section class="section research" id="research">
     <div class="section-inner">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="eyebrow">// 02 . RESEARCH</p>
         <h2 class="section-title">Publications</h2>
       </div>
 
-      <div class="glass-panel paper-card reveal">
+      <div class="glass-panel paper-card reveal 3d-hover">
         <div class="paper-left">
           <div class="paper-meta-top">
             <span class="paper-date">May 2026</span>
@@ -150,14 +156,14 @@
 
   <section class="section projects" id="projects">
     <div class="section-inner">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="eyebrow">// 03 . BUILDS</p>
         <h2 class="section-title">Engineering</h2>
       </div>
 
       <div class="project-grid">
         
-        <article class="glass-panel project reveal" data-accent="amber">
+        <article class="glass-panel project reveal 3d-hover" data-accent="amber">
           <div class="module-header">
             <span class="module-id">MOD-01</span>
             <div class="status-indicator"><span class="pulse amber"></span> QUANT_ENGINE</div>
@@ -183,7 +189,7 @@
           </div>
         </article>
 
-        <article class="glass-panel project reveal" data-accent="green" style="transition-delay: 0.1s">
+        <article class="glass-panel project reveal 3d-hover" data-accent="green" style="transition-delay: 0.1s">
           <div class="module-header">
             <span class="module-id">MOD-02</span>
             <div class="status-indicator"><span class="pulse green"></span> ML_PIPELINE</div>
@@ -209,7 +215,7 @@
           </div>
         </article>
         
-        <article class="glass-panel project reveal" data-accent="amber">
+        <article class="glass-panel project reveal 3d-hover" data-accent="amber">
           <div class="module-header">
             <span class="module-id">MOD-03</span>
             <div class="status-indicator"><span class="pulse amber"></span> SYS_PROG</div>
@@ -235,7 +241,7 @@
           </div>
         </article>
 
-        <article class="glass-panel project reveal" data-accent="green" style="transition-delay: 0.1s">
+        <article class="glass-panel project reveal 3d-hover" data-accent="green" style="transition-delay: 0.1s">
           <div class="module-header">
             <span class="module-id">MOD-04</span>
             <div class="status-indicator"><span class="pulse green"></span> RAG_SYS</div>
@@ -261,7 +267,7 @@
           </div>
         </article>
 
-        <article class="glass-panel project reveal" data-accent="amber">
+        <article class="glass-panel project reveal 3d-hover" data-accent="amber">
           <div class="module-header">
             <span class="module-id">MOD-05</span>
             <div class="status-indicator"><span class="pulse amber"></span> NLP_ENGINE</div>
@@ -287,7 +293,7 @@
           </div>
         </article>
 
-        <article class="glass-panel project reveal" data-accent="green" style="transition-delay: 0.1s">
+        <article class="glass-panel project reveal 3d-hover" data-accent="green" style="transition-delay: 0.1s">
           <div class="module-header">
             <span class="module-id">MOD-06</span>
             <div class="status-indicator"><span class="pulse green"></span> FULL_STACK</div>
@@ -322,13 +328,13 @@
 
   <section class="section stack" id="stack">
     <div class="section-inner">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="eyebrow">// 04 . TECH STACK</p>
         <h2 class="section-title">System Loadout</h2>
       </div>
       
       <div class="stack-grid">
-        <div class="glass-panel stack-col reveal">
+        <div class="glass-panel stack-col reveal 3d-hover">
           <div class="stack-header"><span class="pulse green"></span> LANGUAGES</div>
           <ul>
             <li>Python</li>
@@ -337,7 +343,7 @@
             <li>CSS</li>
           </ul>
         </div>
-        <div class="glass-panel stack-col reveal" style="transition-delay: 0.1s">
+        <div class="glass-panel stack-col reveal 3d-hover" style="transition-delay: 0.1s">
           <div class="stack-header"><span class="pulse amber"></span> ML &amp; DATA</div>
           <ul>
             <li>XGBoost</li>
@@ -347,7 +353,7 @@
             <li>NLTK</li>
           </ul>
         </div>
-        <div class="glass-panel stack-col reveal" style="transition-delay: 0.2s">
+        <div class="glass-panel stack-col reveal 3d-hover" style="transition-delay: 0.2s">
           <div class="stack-header"><span class="pulse green"></span> INFRA</div>
           <ul>
             <li>Flask</li>
@@ -361,23 +367,23 @@
 
   <section class="section contact" id="contact">
     <div class="section-inner contact-inner">
-      <p class="eyebrow">// 05 . CONTACT</p>
-      <h2 class="contact-title">Reach Out.</h2>
-      <p class="contact-sub">Open to research collaborations, internships, and interesting projects.</p>
+      <p class="eyebrow reveal">// 05 . CONTACT</p>
+      <h2 class="contact-title reveal">Reach Out.</h2>
+      <p class="contact-sub reveal">Open to research collaborations, internships, and interesting projects.</p>
       <div class="contact-links reveal">
-        <a href="mailto:vishnudattaj@gmail.com" class="glass-panel contact-link">
+        <a href="mailto:vishnudattaj@gmail.com" class="glass-panel contact-link 3d-hover">
           <span class="contact-label">EMAIL</span>
           <span class="contact-value">vishnudattaj@gmail.com</span>
         </a>
-        <a href="https://linkedin.com/in/vjayanti" target="_blank" rel="noopener" class="glass-panel contact-link">
+        <a href="https://linkedin.com/in/vjayanti" target="_blank" rel="noopener" class="glass-panel contact-link 3d-hover">
           <span class="contact-label">LINKEDIN</span>
           <span class="contact-value">/in/vjayanti</span>
         </a>
-        <a href="https://github.com/vishnudattaj" target="_blank" rel="noopener" class="glass-panel contact-link">
+        <a href="https://github.com/vishnudattaj" target="_blank" rel="noopener" class="glass-panel contact-link 3d-hover">
           <span class="contact-label">GITHUB</span>
           <span class="contact-value">/vishnudattaj</span>
         </a>
-        <a href="https://scholar.google.com/citations?hl=en&user=XA1tLwkAAAAJ" target="_blank" rel="noopener" class="glass-panel contact-link">
+        <a href="https://scholar.google.com/citations?hl=en&user=XA1tLwkAAAAJ" target="_blank" rel="noopener" class="glass-panel contact-link 3d-hover">
           <span class="contact-label">SCHOLAR</span>
           <span class="contact-value">Google Scholar ↗</span>
         </a>
