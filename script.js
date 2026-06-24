@@ -1,4 +1,5 @@
 // ============================================
+// Logic derived and enhanced from original[cite: 2]
 // Terminal boot sequence in hero
 // ============================================
 const termBody = document.getElementById('termBody');
@@ -21,7 +22,7 @@ function buildStaticTerminal() {
     if (line.type === 'cmd') {
       return `<div><span class="prompt">ROOT@SYS:~$</span> <span class="out">${line.text}</span></div>`;
     } else if (line.type === 'out-green') {
-      return `<div style="color:var(--neon-green); text-shadow: 0 0 5px var(--green-glow)">${line.text}</div>`;
+      return `<div style="color:var(--neon-green); text-shadow: 0 0 10px var(--green-glow)">${line.text}</div>`;
     } else {
       return `<div class="dim">${line.text}</div>`;
     }
@@ -59,23 +60,22 @@ async function typeTerminal() {
 
       for (const ch of line.text) {
         textSpan.textContent += ch;
-        await sleep(35);
+        await sleep(25);
       }
-      await sleep(200);
+      await sleep(150);
     } else {
       row.className = line.type === 'out-green' ? '' : 'dim';
       if (line.type === 'out-green') {
         row.style.color = 'var(--neon-green)';
-        row.style.textShadow = '0 0 5px var(--green-glow)';
+        row.style.textShadow = '0 0 10px var(--green-glow)';
       }
       
-      // Simulate data stream parsing
       const compileSpan = document.createElement('span');
       row.appendChild(compileSpan);
-      await simulateCompilation(compileSpan, 1000);
+      await simulateCompilation(compileSpan, 600);
       
       compileSpan.textContent = line.text;
-      await sleep(300);
+      await sleep(200);
     }
   }
 }
@@ -85,6 +85,34 @@ function sleep(ms) {
 }
 
 typeTerminal();
+
+// ============================================
+// 3D Tilt Effect on Hover (Vanilla JS)
+// ============================================
+(function init3DTilt() {
+  if (prefersReduced) return;
+  const cards = document.querySelectorAll('.3d-hover');
+  
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      // Calculate rotation based on cursor position
+      const rotateX = ((y - centerY) / centerY) * -10; // Max 10 deg rotation
+      const rotateY = ((x - centerX) / centerX) * 10;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    });
+  });
+})();
 
 // ============================================
 // Scroll reveal with staging
@@ -108,30 +136,13 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
   if (y > 40) {
-    nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.8), 0 1px 0 var(--glass-border)';
-    nav.style.background = 'rgba(3, 6, 10, 0.95)';
+    nav.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.8), 0 1px 0 rgba(255,255,255,0.1)';
+    nav.style.background = 'rgba(5, 8, 12, 0.8)';
   } else {
     nav.style.boxShadow = 'none';
-    nav.style.background = 'rgba(3, 6, 10, 0.85)';
+    nav.style.background = 'rgba(3, 5, 8, 0.6)';
   }
 }, { passive: true });
-
-// ============================================
-// Mouse-reactive spotlight on hero grid
-// ============================================
-(function heroSpotlight() {
-  const hero = document.getElementById('top');
-  const spotlight = document.getElementById('gridSpotlight');
-  if (!hero || !spotlight || prefersReduced) return;
-
-  hero.addEventListener('pointermove', (e) => {
-    const rect = hero.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    spotlight.style.setProperty('--mx', `${x}%`);
-    spotlight.style.setProperty('--my', `${y}%`);
-  });
-})();
 
 // ============================================
 // Active nav-link tracking on scroll
@@ -207,13 +218,14 @@ window.addEventListener('scroll', () => {
 
   function animateCount(item) {
     const { el, target, suffix, hasComma, decimals } = item;
-    const duration = 1500;
+    const duration = 2000;
     const start = performance.now();
 
     function tick(now) {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
+      // More aggressive easing for punchier numbers
+      const eased = 1 - Math.pow(1 - progress, 4);
       const current = target * eased;
       el.textContent = formatNumber(current, hasComma, decimals) + suffix;
       if (progress < 1) {
